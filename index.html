@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroFácil App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Simulação de uma tela de celular */
+        .app-container {
+            width: 100%;
+            max-width: 410px;
+            height: 840px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 8px solid #222;
+        }
+
+        /* Topo do App */
+        .app-header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 30px 20px 20px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .app-header h1 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .app-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Conteúdo Principal */
+        .app-content {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Grid de Botões/Cards */
+        .grid-menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card:active {
+            transform: scale(0.95);
+        }
+
+        .card-icon {
+            font-size: 28px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .card-info {
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* Cores dos Cards */
+        .clima { border-left: 5px solid #ffb74d; }
+        .cotacao { border-left: 5px solid #64b5f6; }
+        .diario { border-left: 5px solid #81c784; }
+        .ia { border-left: 5px solid #ba68c8; }
+
+        /* Rodapé Estilo App */
+        .app-footer {
+            background: #fafafa;
+            border-top: 1px solid #eee;
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1>AgroFácil</h1>
+            <p>Olá, Produtor! Veja o resumo de hoje.</p>
+        </header>
+
+        <main class="app-content">
+            <h2 class="section-title">Painel de Controle</h2>
+            
+            <div class="grid-menu">
+                <div class="card clima" onclick="abrirFuncao('Previsão do Tempo')">
+                    <span class="card-icon">☀️</span>
+                    <span class="card-title">Clima</span>
+                    <span class="card-info">Ensolarado / 28°C</span>
+                </div>
+
+                <div class="card cotacao" onclick="abrirFuncao('Cotações de Mercado')">
+                    <span class="card-icon">📈</span>
+                    <span class="card-title">Cotações</span>
+                    <span class="card-info">Soja: +1.2%</span>
+                </div>
+
+                <div class="card diario" onclick="abrirFuncao('Diário de Campo')">
+                    <span class="card-icon">📝</span>
+                    <span class="card-title">Diário</span>
+                    <span class="card-info">3 notas anotadas</span>
+                </div>
+
+                <div class="card ia" onclick="abrirFuncao('Identificador de Pragas por IA')">
+                    <span class="card-icon">🤖</span>
+                    <span class="card-title">Diagnóstico</span>
+                    <span class="card-info">Análise de folhas</span>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            AgroFácil v1.0 • Conectando o Campo
+        </footer>
+    </div>
+
+    <script>
+        // Função que simula a abertura das abas do app
+        function abrirFuncao(nomeFuncao) {
+            alert("Abrindo o recurso: " + nomeFuncao);
+        }
+    </script>
+</body>
+</html>
